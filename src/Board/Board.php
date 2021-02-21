@@ -20,6 +20,9 @@ class Board implements \JsonSerializable
     /** @var string */
     public $type;
 
+    /** @var int */
+    public $filterId;
+
     /**
      * Location [\JiraRestApi\Board\Location].
      *
@@ -27,6 +30,55 @@ class Board implements \JsonSerializable
      */
     public $location;
 
+
+    /**
+     * @return int
+     */
+    public function getFilterId(): int
+    {
+        return $this->filterId;
+    }
+
+    /**
+     * @param int $filterId
+     */
+    public function setFilterId(int $filterId): self
+    {
+        $this->filterId = $filterId;
+        
+        return $this;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType(string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+    
     /**
      * Get board id.
      */
@@ -65,6 +117,16 @@ class Board implements \JsonSerializable
     public function getLocation()
     {
         return $this->location;
+    }
+
+    /**
+     * Set location.
+     */
+    public function setLocation(Location $location)
+    {
+        $this->location = $location;
+
+        return $this;
     }
 
     public function jsonSerialize()

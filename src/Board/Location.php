@@ -25,6 +25,48 @@ class Location implements \JsonSerializable
     /** @var string * */
     public $name;
 
+    /** @var string * */
+    public $type;
+
+    /** @var string * */
+    public $projectKeyOrId;
+    
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     * @return Location
+     */
+    public function setType(string $type): self
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProjectKeyOrId(): string
+    {
+        return $this->projectKeyOrId;
+    }
+
+    /**
+     * @param string $projectKeyOrId
+     * @return Location
+     */
+    public function setProjectKeyOrId(string $projectKeyOrId): self
+    {
+        $this->projectKeyOrId = $projectKeyOrId;
+        return $this;
+    }
+
     /**
      * Get project id.
      */

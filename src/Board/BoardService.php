@@ -6,6 +6,7 @@ use JiraRestApi\AgileApiTrait;
 use JiraRestApi\Configuration\ConfigurationInterface;
 use JiraRestApi\Epic\Epic;
 use JiraRestApi\Issue\AgileIssue;
+use JiraRestApi\Project\Project;
 use JiraRestApi\Sprint\Sprint;
 use Psr\Log\LoggerInterface;
 
@@ -141,5 +142,19 @@ class BoardService extends \JiraRestApi\JiraClient
 
             return null;
         }
+    }
+
+    public function createBoard(Board $board): Board
+    {
+        $data = json_encode($board);
+
+        $ret = $this->exec($this->uri, $data, 'POST');
+
+        $this->log->info('createboard Result='.$ret);
+
+        return $this->json_mapper->map(
+            json_decode($ret),
+            new Board()
+        );
     }
 }
