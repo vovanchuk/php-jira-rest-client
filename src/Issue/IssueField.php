@@ -11,9 +11,6 @@ class IssueField implements \JsonSerializable
     /** @var string */
     public $summary;
 
-    /** @var string */
-    public $name;
-
     /** @var array */
     public $progress;
 
@@ -169,24 +166,6 @@ class IssueField implements \JsonSerializable
         }
 
         return $vars;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     * @return IssueField
-     */
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-        return $this;
     }
 
     public function getCustomFields()
